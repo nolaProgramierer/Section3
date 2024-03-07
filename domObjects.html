@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Selection Example</title>
+<style>
+    body {
+        font-size: 2em;
+    }
+    .selected {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>Select DOM Objects Example</h1>
+
+<div id="container">
+    <p id="paragraph1">This is paragraph 1.</p>
+    <p class="paragraph">This is paragraph 2.</p>
+    <p class="paragraph">This is paragraph 3.</p>
+    <button id="button">Click me to select</button>
+</div>
+
+<script>
+    // Selecting by ID
+    var paragraph1 = document.getElementById('paragraph1');
+    paragraph1.style.color = 'blue'; // Changing color
+
+    // Selecting by class name
+    var paragraphs = document.getElementsByClassName('paragraph');
+    // This is the same as a standard for loop
+    // for (var i = 0; i < paragraphs.length; i++)
+    for (paragraph of paragraphs) {
+        paragraph.style.fontStyle = 'italic'; // Changing font style
+    }
+
+    // Selecting by tag name
+    var buttons = document.getElementsByTagName('button');
+    for (btn of buttons) {
+        btn.addEventListener('click', function() {
+            // Adding a class to the container div
+            document.getElementById('container').classList.add('selected');
+        });
+    }
+</script>
+
+</body>
+</html>

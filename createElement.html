@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            #container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            ul {
+                list-style-type: none;
+            }
+            .list-style {
+                background-color: beige;
+                border: 1px solid black;
+                padding: 5px 10px 5px 10px;
+            }
+            button {
+                color: white;
+                background-color: blue;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="container">
+            <h2>Create List Demo</h2>
+            <button id="click-me">Make a List</button>
+            <ul id="my-list">
+                <!--JS goes here!-->
+            </ul>
+        </div>
+        
+        <script>
+            myArr = ["list1", "list2", "list3", "list4", "list5", "list6", "list7"]
+
+            myList = document.getElementById("click-me");
+            myList.addEventListener("click", makeList);
+
+            function makeList() {
+                orList = document.querySelector("#my-list");
+                myArr.forEach((element, index) => {
+                    listItem = document.createElement("li");
+                    listItem.textContent = element;
+                    listItem.classList.add("list-style");
+                    listItem.setAttribute("id", index + 1)
+                    listItem.addEventListener('click', (e) => console.log(e.target.id))
+                    orList.append(listItem);
+            });
+            } 
+
+        </script>
+    </body>
+</html>
